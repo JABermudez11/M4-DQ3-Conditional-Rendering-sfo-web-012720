@@ -1,6 +1,11 @@
 import React from 'react'
 
-const MenuBar = (props) => {
+const MenuBar = ({changeSelected, selected}) => {
+
+  const handleClick = event => (
+    changeSelected(event.target.id)
+  )  
+
 
   /*
 
@@ -15,19 +20,23 @@ const MenuBar = (props) => {
 
   return (
     <div className="ui four item menu">
-      <a className="item active" id="profile">
-        <i className="user large icon" id="profile"/>
+      <a className={"item " + (selected==="profile" ? "active" : null)}  
+      onClick={handleClick} >
+        <i className="user large icon" id="profile" />
       </a>
 
-      <a className="item" id="photo">
+      <a className={"item " + (selected==="photo" ? "active" : null)}  
+      onClick={handleClick} id="photo">
         <i className="photo large icon" id="photo"/>
       </a>
 
-      <a className="item" id="cocktail">
+      <a className={"item " + (selected==="cocktail" ? "active" : null)}  
+      onClick={handleClick} id="cocktail">
         <i className="cocktail large icon" id="cocktail"/>
       </a>
 
-      <a className="item" id="pokemon"> 
+      <a className={"item " + (selected==="pokemon" ? "active" : null)}  
+      onClick={handleClick} id="pokemon"> 
         <i className=" themeisle large icon" id="pokemon"/>
       </a>
     </div>
